@@ -38,9 +38,9 @@ public class Book {
         return price;
     }
 
-//    public List<Author> getAuthors() {
-//        return authors;
-//    }
+    public List<Author> getAuthors() {
+        return authors;
+    }
 
 
 

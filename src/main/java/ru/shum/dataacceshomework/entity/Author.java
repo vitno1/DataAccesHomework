@@ -31,7 +31,7 @@ public class Author {
         return fullName;
     }
 
-//    public List<Book> getBooks() {
-//        return books;
-//    }
+    public List<Book> getBooks() {
+        return books;
+    }
 }
