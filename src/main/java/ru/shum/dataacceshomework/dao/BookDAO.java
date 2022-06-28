@@ -7,5 +7,5 @@ import java.util.Set;
 
 public interface BookDAO {
     public List<Book> getAllBooks();
-//    public List<Book> getBooksByAuthor();
+    public List<Book> getBooksByAuthor();
 }

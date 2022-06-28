@@ -18,4 +18,9 @@ public class AuthorServiceImpl implements AuthorService {
     public List<Author> getAllAuthors() {
         return authorDAO.getAllAuthors();
     }
+
+    @Override
+    public List<Author> getAuthorsByBook() {
+        return authorDAO.getAuthorsByBook();
+    }
 }

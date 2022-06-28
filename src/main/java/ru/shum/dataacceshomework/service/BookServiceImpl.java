@@ -15,14 +15,12 @@ public class BookServiceImpl implements BookService{
     private BookDAO bookDAO;
 
     @Override
-    @Transactional
     public List<Book> getAllBooks() {
        return bookDAO.getAllBooks();
     }
 
-//    @Override
-//    @Transactional
-//    public List<Book> getBooksByAuthor() {
-//        return bookDAO.getBooksByAuthor();
-//    }
+    @Override
+    public List<Book> getBooksByAuthor() {
+        return bookDAO.getBooksByAuthor();
+    }
 }

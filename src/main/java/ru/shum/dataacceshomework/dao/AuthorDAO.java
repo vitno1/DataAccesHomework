@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface AuthorDAO {
     public List<Author> getAllAuthors();
+    public List<Author> getAuthorsByBook();
 
 }

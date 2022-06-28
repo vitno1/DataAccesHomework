@@ -1,6 +1,8 @@
 package ru.shum.dataacceshomework.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.List;
@@ -31,6 +33,7 @@ public class Author {
         return fullName;
     }
 
+    @JsonIgnore
     public List<Book> getBooks() {
         return books;
     }

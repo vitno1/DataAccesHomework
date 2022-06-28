@@ -1,5 +1,7 @@
 package ru.shum.dataacceshomework.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.List;
@@ -19,8 +21,7 @@ public class Book {
     private int price;
 
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "authorship", joinColumns = {@JoinColumn(name = "book_id")}, inverseJoinColumns = {@JoinColumn(name = "author_id")})
+    @ManyToMany(mappedBy = "books", cascade = CascadeType.ALL)
     private List<Author> authors;
 
     public Book() {
@@ -38,10 +39,10 @@ public class Book {
         return price;
     }
 
+    @JsonIgnore
     public List<Author> getAuthors() {
         return authors;
     }
-
 
 
 }

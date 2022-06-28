@@ -8,4 +8,5 @@ import java.util.List;
 public interface AuthorService {
 
     public List<Author> getAllAuthors();
+    public List<Author> getAuthorsByBook();
 }

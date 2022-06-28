@@ -32,10 +32,15 @@ public class MyRestController {
         return allBooks;
     }
 
-//    @GetMapping("/bookz")
-//    public List<Book> showAllBooksByAuthor(){
-//        List<Book> allBooks = bookService.getBooksByAuthor();
-//        return allBooks;
-//    }
+    @GetMapping("/books/1")
+    public List<Book> showAllBooksByAuthor(){
+        List<Book> allBooks = bookService.getBooksByAuthor();
+        return allBooks;
+    }
+    @GetMapping("authors/1")
+    public List<Author> showAllAuthorsByBook(){
+        List<Author> allAuthors = authorService.getAuthorsByBook();
+        return allAuthors;
+    }
 
 }
