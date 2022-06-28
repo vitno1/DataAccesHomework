@@ -1,7 +1,8 @@
 package ru.shum.dataacceshomework.controller;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,28 +15,20 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@RequiredArgsConstructor
 public class MyRestController {
-    @Autowired
-    private AuthorService authorService;
-    @Autowired
-    private BookService bookService;
+
+    private final AuthorService authorService;
+    private final BookService bookService;
 
     @GetMapping("/authors")
-    public List<Author> showAllAuthors(){
-        List<Author> allAuthors = authorService.getAllAuthors();
-        return allAuthors;
+    public ResponseEntity<List<Author>> showAllAuthors(){
+        return  ResponseEntity.ok(authorService.getAllAuthors());
     }
 
     @GetMapping("/books")
-    public List<Book> showAllBooks(){
-        List<Book> allBooks = bookService.getAllBooks();
-        return allBooks;
+    public ResponseEntity<List<Book>> showAllBooks(){
+        return ResponseEntity.ok(bookService.getAllBooks());
     }
-
-//    @GetMapping("/bookz")
-//    public List<Book> showAllBooksByAuthor(){
-//        List<Book> allBooks = bookService.getBooksByAuthor();
-//        return allBooks;
-//    }
 
 }

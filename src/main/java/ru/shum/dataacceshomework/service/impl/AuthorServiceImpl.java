@@ -1,19 +1,18 @@
-package ru.shum.dataacceshomework.service;
+package ru.shum.dataacceshomework.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import ru.shum.dataacceshomework.dao.AuthorDAO;
 import ru.shum.dataacceshomework.entity.Author;
+import ru.shum.dataacceshomework.service.AuthorService;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class AuthorServiceImpl implements AuthorService {
 
-    @Autowired
-    private AuthorDAO authorDAO;
-
+    private final AuthorDAO authorDAO;
     @Override
     public List<Author> getAllAuthors() {
         return authorDAO.getAllAuthors();

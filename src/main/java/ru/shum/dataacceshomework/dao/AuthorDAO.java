@@ -1,7 +1,6 @@
 package ru.shum.dataacceshomework.dao;
 
 import ru.shum.dataacceshomework.entity.Author;
-import ru.shum.dataacceshomework.entity.Book;
 
 import java.util.List;
 

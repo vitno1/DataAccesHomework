@@ -1,19 +1,17 @@
-package ru.shum.dataacceshomework.dao;
+package ru.shum.dataacceshomework.dao.impl;
 
 import org.hibernate.Session;
-import org.hibernate.query.Query;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import ru.shum.dataacceshomework.dao.AuthorDAO;
 import ru.shum.dataacceshomework.entity.Author;
-import ru.shum.dataacceshomework.entity.Book;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-public class AuthorDAOImpl implements AuthorDAO{
+public class AuthorDAOImpl implements AuthorDAO {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -22,10 +20,7 @@ public class AuthorDAOImpl implements AuthorDAO{
     @Transactional
     public List<Author> getAllAuthors() {
         Session session = entityManager.unwrap(Session.class);
-        Query<Author> query = session.createQuery("from Author " , Author.class);
-        List<Author> resultList = query.getResultList();
-        System.out.println(resultList);
-        return resultList;
+        return session.createQuery("FROM Author " , Author.class).getResultList();
     }
 
 }

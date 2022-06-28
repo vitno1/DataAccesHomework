@@ -1,28 +1,23 @@
-package ru.shum.dataacceshomework.service;
+package ru.shum.dataacceshomework.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.shum.dataacceshomework.dao.BookDAO;
 import ru.shum.dataacceshomework.entity.Book;
+import ru.shum.dataacceshomework.service.BookService;
 
 import java.util.List;
 
 @Service
-public class BookServiceImpl implements BookService{
+@RequiredArgsConstructor
+public class BookServiceImpl implements BookService {
 
-    @Autowired
-    private BookDAO bookDAO;
-
+    private final BookDAO bookDAO;
     @Override
     @Transactional
     public List<Book> getAllBooks() {
        return bookDAO.getAllBooks();
     }
 
-//    @Override
-//    @Transactional
-//    public List<Book> getBooksByAuthor() {
-//        return bookDAO.getBooksByAuthor();
-//    }
 }
