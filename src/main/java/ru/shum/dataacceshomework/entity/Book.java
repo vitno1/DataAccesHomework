@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -39,10 +40,11 @@ public class Book {
         return price;
     }
 
-    @JsonIgnore
+
     public List<Author> getAuthors() {
         return authors;
     }
+
 
     @Override
     public String toString() {
@@ -50,6 +52,20 @@ public class Book {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
+                ", authors=" + authors +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return id == book.id && price == book.price && Objects.equals(name, book.name) && Objects.equals(authors, book.authors);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, price, authors);
     }
 }
