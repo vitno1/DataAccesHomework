@@ -15,7 +15,7 @@ public class Book {
     @Column(name = "book_id")
     private int id;
 
-    @Column(name = "book_name")
+    @Column(name = "book_namezzzzzz")
     private String name;
 
     @Column(name = "price")
